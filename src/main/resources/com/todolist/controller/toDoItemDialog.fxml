@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.todolist.controller.DialogController" styleClass="bg-white, parent" stylesheets="@style.css">
+    <headerText>
+
+    </headerText>
+
+    <content>
+        <GridPane vgap="10" hgap="10" >
+            <Label text="Short description" styleClass="shadow-grey"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField   fx:id="shortDescriptionField" promptText="Enter a short description of the task" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Details" styleClass="shadow-grey"  GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextArea  fx:id="detailsArea" promptText="Enter the details of the task" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                wrapText="true"/>
+            <Label text="Deadline" styleClass="shadow-grey" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="deadlinePicker" promptText="Choose a deadline" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+
+</DialogPane>

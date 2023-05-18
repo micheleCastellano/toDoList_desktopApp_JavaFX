@@ -1,0 +1,117 @@
+
+/*BASE----------------------------------------------------------------------*/
+.parent{
+    -fx-font-family: "SansSerif";
+    -fx-background-color: rgba(67, 172, 166, 0.9);
+}
+
+
+/*UTILITY----------------------------------------------------------------------*/
+.bg-white{
+    -fx-background-color: white !important;
+}
+.bg-green-light{
+    -fx-background-color: rgba(67, 172, 166, 0.2) !important;
+}
+.shadow-green{
+    -fx-effect: dropshadow(one-pass-box, rgba(67, 172, 166, 0.2), 0, 2, 2, 2);
+}
+
+.shadow-grey{
+    -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.1), 2, 0.6, 0, 1);
+}
+
+/*!*COMPONENTS--------------------------------------------------------------------------------*!*/
+.btn {
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+}
+.btn:hover{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 0, 2, 2, 2);
+    -fx-translate-y: 1;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+
+.input{
+    -fx-border-style: none;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 0, 2, 2, 2);
+    -fx-border-radius: 100px;
+}
+
+/*!*WINDOW BAR----------------------------------------------------------------------------------*!*/
+.btn-minimize:hover,
+.btn-close:hover
+{
+    -fx-background-color: rgba(54, 143, 139, 0.9);
+}
+
+/*!*MENUBAR-------------------------------------------------------------------------------------------------------*!*/
+.menubar{
+    -fx-border-width: 2px;
+    -fx-border-color:  rgba(67, 172, 166, 0.9) transparent;
+}
+
+/*!*TOOLBAR-------------------------------------------------------------------------------------------------*!*/
+.btn-filter{
+    -fx-background-color: rgba(0, 0, 0, 0.06);
+}
+
+.btn-filter:hover{
+    -fx-background-color: rgba(67, 172, 166, 0.9);
+    -fx-text-fill: white;
+}
+
+.tf-search{
+    -fx-text-box-border: transparent;
+    -fx-border-color: rgba(0, 0, 0, 0.2);
+    -fx-border-radius: 30;
+    -fx-border-width: 1px;
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-insets: 0;
+}
+
+.tf-search:focused,
+.tf-search:hover{
+    -fx-border-color: rgba(67, 172, 166, 0.9);
+    -fx-focus-color: transparent;
+}
+
+/*!*LISTVIEW---------------------------------------------------------------------------------------------*!*/
+.cell{
+    -fx-pref-height: 40px;
+    -fx-border-width: 0px 0px 0px 4px;
+    -fx-padding: 0px 0px 0px 7px;
+}
+
+.cell:selected{
+    -fx-background-color: rgba(0, 0, 0, 0.08);
+    -fx-border-color: rgba(67, 172, 166, 0.9);
+}
+
+.cell--overdue{
+    -fx-text-fill: rgba(255, 0, 0, 0.6);
+    -fx-font-weight: bold;
+}
+
+.cell--today{
+    -fx-text-fill: rgba(255, 165, 0, 0.6);
+    -fx-font-weight: bold;
+}
+
+/*!*TEXTAREA-------------------------------------------------------------------------------------------------------*!*/
+.textarea{
+    text-area-background: rgba(67, 172, 166, 0.2) ;
+}
+
+.textarea-gradient{
+    text-area-background: linear-gradient( rgba(67, 172, 166, 0.2), white) ;
+}
+.textarea-gradient .content,
+.textarea .content{
+    -fx-background-color: text-area-background ;
+}
+
+
+
+

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainBorderPane" styleClass="parent" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.todolist.controller.Controller">
+    <top>
+        <VBox>
+            <HBox fx:id="windowBar" alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" spacing="15.0">
+                <Pane HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label prefHeight="35.0" text="   To-Do List">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                            <graphic>
+                                <ImageView fitHeight="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../icons/to-do-list.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Label contentDisplay="CENTER" layoutX="709.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleMinimize" prefHeight="35.0" prefWidth="35.0" styleClass="btn-close">
+                    <graphic>
+                        <ImageView fitHeight="15.0" layoutX="5.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateX="10.0" x="5.0" y="5.0">
+                            <image>
+                                <Image url="@../../../icons/minus.png" />
+                            </image>
+                            <viewport>
+                                <Rectangle2D />
+                            </viewport>
+                            <cursor>
+                                <Cursor fx:constant="CLOSED_HAND" />
+                            </cursor>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <Label contentDisplay="CENTER" layoutX="698.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleExit" prefHeight="35.0" prefWidth="35.0" styleClass="btn-close">
+                    <graphic>
+                        <ImageView fitHeight="15.0" layoutX="5.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateX="10.0" x="5.0" y="5.0">
+                            <image>
+                                <Image url="@../../../icons/close.png" />
+                            </image>
+                            <viewport>
+                                <Rectangle2D />
+                            </viewport>
+                            <cursor>
+                                <Cursor fx:constant="CLOSED_HAND" />
+                            </cursor>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <VBox.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </VBox.margin>
+            </HBox>
+            <MenuBar styleClass="bg-white, menubar">
+                <Menu text="File">
+                    <items>
+                        <MenuItem onAction="#showNewItemDialog" text="New..." />
+                        <SeparatorMenuItem />
+                        <MenuItem onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+            </MenuBar>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0">
+                <ToolBar maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" styleClass="bg-white">
+
+                    <Button onAction="#showNewItemDialog" styleClass="btn">
+                        <tooltip>
+                            <Tooltip text="Add new To-Do Item" />
+                        </tooltip>
+                        <graphic>
+                            <ImageView fitHeight="20" preserveRatio="true">
+                                <Image url="@../../../icons/new-document.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#showeditItemDialog" styleClass="btn">
+                        <tooltip>
+                            <Tooltip text="Edit To-Do Item" />
+                        </tooltip>
+                        <graphic>
+                            <ImageView fitHeight="20" preserveRatio="true">
+                                <Image url="@../../../icons/edit.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#handleBinButton" styleClass="btn">
+                        <tooltip>
+                            <Tooltip text="Delete selected To-Do Item" />
+                        </tooltip>
+                        <graphic>
+                            <ImageView fitHeight="20" preserveRatio="true">
+                                <Image url="@../../../icons/bin.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                </ToolBar>
+                <StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" styleClass="bg-white" HBox.hgrow="ALWAYS">
+                    <TextField styleClass="tf-search" onKeyPressed="#handleKeyPressedSearch" fx:id="searchTextField"  maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Short description"  />
+                    <Button onAction="#searchItem" styleClass="btn" translateX="111.0">
+                        <tooltip>
+                            <Tooltip text="Search..." />
+                        </tooltip>
+                        <graphic>
+                            <ImageView fitHeight="15.0" preserveRatio="true">
+                                <Image url="@../../../icons/search.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </StackPane>
+                <ToolBar maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" styleClass="bg-white">
+
+                    <ToggleButton fx:id="filterToggleButton" onAction="#handleFilterButton" styleClass="btn-filter" text="Today's Items">
+                        <tooltip>
+                            <Tooltip text="Button Down: Show Today's items only. \n Button up: Show all items" />
+                        </tooltip>
+                    </ToggleButton>
+                </ToolBar>
+
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+    <left>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <content>
+                <ListView  fx:id="todoListView" onKeyPressed="#handleKeyPressedDelete" prefHeight="50">
+                </ListView>
+            </content>
+        </ScrollPane>
+
+    </left>
+
+    <center>
+        <TextArea styleClass="textarea-gradient" fx:id="textAreaView" editable="false" BorderPane.alignment="CENTER" />
+    </center>
+
+</BorderPane>
